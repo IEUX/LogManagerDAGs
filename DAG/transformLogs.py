@@ -63,7 +63,7 @@ def consume_kafka_messages(**context):
     service_groups = df.groupby("service")
 
     # LOAD
-
+    print(service_groups)
     for service, group in service_groups:
         # Table name based on service
         table_name = f"events_{service.lower()}"
