@@ -26,7 +26,7 @@ pipeline {
                     //     scp -r DAG/* ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_PATH}
                     // """
                     sh """
-                    cp DAG/* /var/lib/jenkins_home/airflow_dags 
+                    cp DAG/* /var/jenkins_home/airflow_dags 
                     """
                 }
             }
