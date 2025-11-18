@@ -33,7 +33,7 @@ def consume_kafka_messages(**context):
 
     # EXTRACT
 
-    for _ in range(40):
+    for _ in range(300):
         msg = consumer.poll(1.0)
         if msg is None:
             continue
