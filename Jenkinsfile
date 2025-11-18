@@ -14,16 +14,19 @@ pipeline {
                 checkout scm
             }
         }
-        
+
         stage('Deploy') {
             steps {
                 script {
                     // Use Jenkins credentials for SSH if configured
                     // Example: withCredentials([sshUserPrivateKey(credentialsId: 'ssh-key-id', keyFileVariable: 'SSH_KEY')]) { ... }
                     
+                    // sh """
+                    //     echo "Transferring DAG files to remote server..."
+                    //     scp -r DAG/* ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_PATH}
+                    // """
                     sh """
-                        echo "Transferring DAG files to remote server..."
-                        scp -r DAG/* ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_PATH}
+                    docker cp DAG/. airflow-scheduler:/opt/airflow/dags/
                     """
                 }
             }
