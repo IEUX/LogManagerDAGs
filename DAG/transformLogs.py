@@ -85,7 +85,7 @@ def consume_kafka_messages(**context):
 
         # Insert subset of data
         client.insert_df(table_name, group)
-
+        print("DAG RUN SUCCESFULLY ")
         print(f"✅ Inserted {len(group)} rows into table '{table_name}'")
 
 
