@@ -92,7 +92,7 @@ def consume_kafka_messages(**context):
 with DAG(
     dag_id="transformLogsFromKafka",
     start_date=datetime(2025, 10, 27),
-    schedule_interval="*/10 * * * *",
+    schedule_interval="*/1 * * * *",
     catchup=False,
 ) as dag:
     consume_task = PythonOperator(
